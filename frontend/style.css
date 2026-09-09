@@ -9,6 +9,7 @@
   --muted: #6a625a;
   --max: 1260px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -998,5 +999,34 @@ button[hidden] {
   }
   .volumes {
     justify-content: flex-end;
+  }
+}
+
+/* Reference-inspired poster masthead: a left issue rail, centered wordmark,
+   and utility controls kept in their own corners. */
+@media (min-width: 801px) {
+  .masthead { min-height: 280px; position: relative; }
+  .mast-inner { min-height: 280px; padding: 22px 24px 30px 190px; display: block; }
+  .brand-sub { display: none; }
+  .brand { left: 190px; bottom: 24px; max-width: calc(100% - 480px); font-size: clamp(5rem, 12vw, 12rem); line-height: .72; }
+  .mast-tools { top: 20px; right: 24px; max-width: 370px; z-index: 3; }
+  .mast-search { background: var(--ink); padding-left: 2px; }
+  .mast-search input { width: 108px; border: 0; color: var(--paper); padding-left: 10px; padding-right: 8px; }
+  .mast-search input::placeholder { color: var(--paper); opacity: 1; }
+  .mast-search .tool { border-color: var(--ink); border-left: 1px solid rgba(247,241,232,.5); background: var(--ink); color: var(--paper); }
+  .volumes { position: absolute; left: 0; bottom: 0; width: 174px; max-width: none; height: 100%; margin: 0; border: 0; display: flex; align-items: stretch; justify-content: flex-start; overflow: hidden; z-index: 4; }
+  .volume { flex: 1 1 0; min-width: 0; padding: 11px 5px; border-top: 1px solid rgba(0,0,0,.3); border-right: 1px solid rgba(0,0,0,.3); border-left: 0; writing-mode: vertical-rl; transform: rotate(180deg); text-align: left; letter-spacing: .02em; }
+  .volume:first-child { border-left: 1px solid rgba(0,0,0,.3); }
+  .volume.active { background: var(--ink); color: var(--paper); }
+  .volumes.open { width: 280px; flex-wrap: nowrap; }
+}
+@media (min-width: 801px) {
+  .mast-tools [data-menu-toggle] {
+    position: absolute;
+    right: 0;
+    top: 220px;
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
   }
 }
