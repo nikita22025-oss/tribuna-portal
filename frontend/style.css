@@ -1122,3 +1122,30 @@ button[hidden] {
   .side-feature { border-left-width: 6px; padding-left: 12px; }
   .side-feature .side-art img { box-shadow: 5px 5px 0 var(--ink); }
 }
+
+/* Wide editorial canvas: use the laptop viewport instead of leaving a narrow
+   centered column surrounded by empty paper. */
+@media (min-width: 801px) {
+  .page {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(28px, 3.2vw, 64px);
+    padding-right: clamp(28px, 3.2vw, 64px);
+  }
+  .hero-grid,
+  .feed-grid,
+  .section-head,
+  .pagination {
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.55fr) minmax(330px, .75fr);
+    gap: clamp(28px, 3vw, 58px);
+  }
+  .hero-media { aspect-ratio: 1.7 / 1; }
+  .feed-grid { gap: clamp(20px, 2vw, 34px); }
+}
+.hero::before { display: none; }
