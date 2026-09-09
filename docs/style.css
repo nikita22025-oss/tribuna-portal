@@ -1465,6 +1465,16 @@ body {
 .rating-card-live > a { display: inline-block; margin-top: 10px; color: var(--signal); font: 500 10px DM Mono, monospace; text-transform: uppercase; }
 @media (max-width: 800px) { .rating-card-live iframe { height: 360px; } }
 
+/* Full-width closing spread: the footer reads like the back cover of the journal. */
+footer.site-footer { width:100vw; max-width:none; margin-left:calc(50% - 50vw); margin-right:0; padding:0; background:var(--paper2); border-top:2px solid var(--ink); color:var(--ink); }
+.site-footer .footer-bleed { max-width:var(--max); margin:0 auto; padding-left:24px; padding-right:24px; font-size:clamp(3.8rem,12vw,10.5rem); letter-spacing:-.12em; }
+.site-footer .footer-bleed span:nth-child(2) { color:var(--signal); }
+.site-footer .footer-bleed span:nth-child(3) { writing-mode:vertical-rl; font-size:.42em; letter-spacing:.02em; }
+.site-footer .footer-content { max-width:var(--max); margin:0 auto; }
+.site-footer .footer-content nav a { color:var(--ink); }
+.site-footer .footer-content nav a:hover { color:var(--signal-deep); }
+@media (max-width:800px) { .site-footer .footer-bleed { padding-left:15px; padding-right:15px; font-size:clamp(3rem,16vw,7rem); } }
+
 /* Static GitHub Pages information anchors */
 .static-info { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; margin-top:3rem; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); background:var(--line); }
 .static-info article { background:var(--paper); padding:1.25rem; scroll-margin-top:1rem; }
