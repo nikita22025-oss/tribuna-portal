@@ -1217,3 +1217,53 @@ button[hidden] {
     max-width: none;
   }
 }
+
+/* Typography pass: sharper editorial hierarchy and calmer reading measure. */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: "Helvetica Neue", "Arial Nova", Arial, sans-serif;
+}
+.hero h1,
+.side-feature h2,
+.section-head h2,
+.article-layout h1,
+.mag-lead h1,
+.mag-feature h2,
+.mag-tall h2,
+.card h3 {
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  text-wrap: balance;
+}
+.hero p,
+.mag-lead p,
+.mag-tall p,
+.article-layout .lead,
+.card .summary {
+  font-family: Georgia, "Times New Roman", serif;
+  text-wrap: pretty;
+}
+.hero p,
+.mag-lead p,
+.mag-tall p { line-height: 1.48; }
+.card h3 { letter-spacing: -.045em; }
+.meta,
+.kicker,
+.eyebrow,
+.mag-year,
+.mag-side-title,
+.ad-label,
+.topline,
+.tool,
+.volume,
+.save,
+.pagination,
+.source-link {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.mag-side-title { letter-spacing: .16em; }
+.art-credit { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
