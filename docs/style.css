@@ -98,6 +98,27 @@ button {
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+.brand-sub span {
+  color: var(--ink);
+  opacity: 0.72;
+  letter-spacing: 0.1em;
+}
+.issue-tag {
+  position: absolute;
+  left: 28px;
+  bottom: 18px;
+  display: grid;
+  gap: 2px;
+  min-width: 142px;
+  padding: 9px 11px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 500 10px/1.2 DM Mono, monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.issue-tag b { color: var(--signal); font-size: 12px; }
 .mast-tools {
   position: absolute;
   right: 25px;
@@ -461,6 +482,15 @@ footer {
   text-transform: uppercase;
   color: var(--muted);
 }
+footer .footer-brand {
+  display: grid;
+  gap: 7px;
+  max-width: 220px;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+}
+footer .footer-brand span { color: var(--muted); letter-spacing: 0; line-height: 1.5; }
+footer .footer-year { align-self: end; }
 footer nav {
   display: flex;
   gap: 15px;
@@ -858,6 +888,32 @@ button[hidden] {
 .feedback[hidden] {
   display: none;
 }
+.rating-strip {
+  margin: 24px 0 8px;
+  border: 1px solid var(--ink);
+  background: #e9dfd0;
+  padding: 18px;
+}
+.rating-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 13px;
+}
+.rating-head .kicker { margin: 0 0 5px; }
+.rating-head h2 { margin: 0; font: 700 clamp(1.45rem, 3vw, 2.4rem)/.95 Arial, sans-serif; letter-spacing: -.05em; }
+.rating-head > a, .rating-grid em { font: 500 10px DM Mono, monospace; text-transform: uppercase; font-style: normal; }
+.rating-head > a:hover, .rating-grid a:hover strong { color: var(--signal-deep); }
+.rating-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.rating-grid a { display: grid; gap: 8px; min-height: 126px; padding: 16px 18px 12px 0; border-right: 1px solid var(--line); margin-right: 18px; }
+.rating-grid a:last-child { border-right: 0; margin-right: 0; }
+.rating-grid span { color: var(--signal-deep); font: 500 10px DM Mono, monospace; letter-spacing: .08em; }
+.rating-grid strong { font: 700 1.1rem/1.04 Arial, sans-serif; letter-spacing: -.035em; }
+.rating-grid em { align-self: end; color: var(--muted); }
+.rating-card { background: var(--ink); color: var(--paper); padding-left: 18px !important; margin-top: 12px !important; margin-bottom: 12px; }
+.rating-card span, .rating-card em { color: var(--signal); }
 .volumes.open {
   flex-wrap: wrap;
   overflow: visible;
@@ -889,6 +945,7 @@ button[hidden] {
     margin-bottom: 20px;
     line-height: 1.5;
   }
+  .issue-tag { position: static; display: inline-grid; margin-top: 15px; transform: none; }
   .brand {
     font-size: clamp(3.8rem, 20vw, 8.5rem);
     line-height: 0.78;
@@ -942,6 +999,12 @@ button[hidden] {
   .side-briefs h3 {
     font-size: 19px;
   }
+  .rating-head { align-items: start; flex-direction: column; }
+  .rating-grid { grid-template-columns: 1fr; }
+  .rating-grid a { border-right: 0; border-bottom: 1px solid var(--line); margin: 0; padding: 15px 0; min-height: 0; }
+  .rating-card { margin: 12px 0 0 !important; padding-left: 12px !important; }
+  footer { display: grid; grid-template-columns: 1fr 1fr; }
+  footer .footer-year { align-self: start; text-align: right; }
 }
 .ad-sidebar {
   display: block;
@@ -1267,3 +1330,20 @@ body {
 }
 .mag-side-title { letter-spacing: .16em; }
 .art-credit { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+/* Static GitHub Pages information anchors */
+.static-info {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 3rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--line);
+}
+.static-info article { background: var(--paper); padding: 1.25rem; scroll-margin-top: 1rem; }
+.static-info h2 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.static-info p { margin: 0; font-size: .88rem; line-height: 1.45; }
+.bookmark-anchor { scroll-margin-top: 1rem; }
+@media (max-width: 860px) { .static-info { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .static-info { grid-template-columns: 1fr; } }

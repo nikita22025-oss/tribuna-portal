@@ -17,10 +17,11 @@
 
 {{define "page-body"}}
 <a class="skip" href="#content">К содержимому</a>
-<div class="topline"><span>Спортивный журнал · {{if .Bundle.IsDemo}}демо-выпуск{{else}}выпуск дня{{end}}</span><span>{{date .Bundle.UpdatedAt}}</span></div>
+<div class="topline"><span>TRB / FIELD NOTES · {{if .Bundle.IsDemo}}демо-выпуск{{else}}выпуск дня{{end}}</span><span>{{date .Bundle.UpdatedAt}} · 01</span></div>
 <header class="masthead">
   <div class="mast-inner">
-    <div class="brand-sub">Трибуна · авторский спортивный портал</div>
+    <div class="brand-sub">TRB / SPORTS DESK<br><span>спорт · люди · контекст</span></div>
+    <div class="issue-tag"><b>№ 01</b><span>Игра без шума</span></div>
     <a class="brand" href="/" aria-label="Трибуна.ру">ТРИБУНА<span class="dot">.</span></a>
     <div class="mast-tools"><form class="mast-search" data-search method="get" action="/"><input name="q" value="{{.Query}}" placeholder="Поиск" aria-label="Поиск"><button class="tool" type="submit">Найти</button></form><a class="tool" href="/bookmarks">Сохранённые</a><button class="tool" data-menu-toggle aria-expanded="false" type="button">Рубрики</button></div>
   </div>
@@ -38,6 +39,7 @@
     <aside class="mag-side"><div class="mag-side-ad">{{range .Bundle.Ads}}{{if eq .Placement "sidebar"}}{{template "ad-row" .}}{{end}}{{end}}{{if not .Bundle.Ads}}<div class="ad-label">Реклама</div><strong>Ваш бренд — в ритме игры</strong><a href="/advertise">Разместить</a>{{end}}</div><div class="mag-side-title">В фокусе</div>{{range $i, $item := .Items}}{{if and (ge $i 3) (le $i 5)}}<a class="mag-brief" href="/news/{{$item.ID}}"><span>{{tag $item.Tag}}</span><strong>{{$item.Title}}</strong></a>{{end}}{{end}}</aside>
   </div>{{end}}
   {{if .Bundle.Ads}}{{range .Bundle.Ads}}{{if eq .Placement "top"}}{{template "ad-row" .}}{{end}}{{end}}{{else}}<aside class="ad-row" aria-label="Рекламное место"><div><div class="ad-label">Собственный проект</div><strong>Ваш бренд — в ритме игры</strong></div><a href="/advertise">Разместить</a></aside>{{end}}
+  <aside class="rating-strip" aria-label="Новости и рейтинг букмекеров"><div class="rating-head"><div><div class="kicker">TRB / MARKET DESK</div><h2>Новости × рейтинг букмекеров</h2></div><a href="https://bookmaker-ratings.ru/" target="_blank" rel="noopener noreferrer">Открыть рейтинг ↗</a></div><div class="rating-grid"><a href="/?category=football#feed"><span>ФУТБОЛ · ЛИНИЯ</span><strong>Матчи дня и главные движения перед стартом</strong><em>Новости →</em></a><a href="/?category=hockey#feed"><span>ХОККЕЙ · ФОКУС</span><strong>Календарь, составы и форма команд</strong><em>Новости →</em></a><a class="rating-card" href="https://bookmaker-ratings.ru/" target="_blank" rel="noopener noreferrer"><span>BOOKMAKER-RATINGS.RU</span><strong>Актуальные оценки и обзоры букмекеров</strong><em>Рейтинг ↗</em></a></div></aside>
   <section aria-labelledby="feed-title"><div class="section-head"><button class="fresh-news" id="fresh-news" type="button" hidden>Есть обновления ↻</button><h2 id="feed-title">{{if .Query}}Результаты поиска{{else if .Category}}{{tag .Category}}{{else}}Лента{{end}}</h2><small>{{if .Category}}{{tag .Category}}{{else}}Все события{{end}} · материалов: {{.Total}}</small></div><div class="feed-grid">{{range .Items}}{{template "article-card" .}}{{else}}<p class="empty">Лента пока пуста. Попробуйте обновить страницу позже.</p>{{end}}</div></section>
   {{range .Bundle.Ads}}{{if or (eq .Placement "inline") (eq .Placement "sidebar")}}{{template "ad-row" .}}{{end}}{{end}}
   {{if or (gt .Page 1) .HasNext}}<nav class="pagination" aria-label="Страницы">{{if gt .Page 1}}<a href="{{.PrevURL}}">← Назад</a>{{else}}<span></span>{{end}}<span>Страница {{.Page}}</span>{{if .HasNext}}<a href="{{.NextURL}}">Дальше →</a>{{else}}<span></span>{{end}}</nav>{{end}}
@@ -59,5 +61,5 @@
   <section class="article-layout"><div class="kicker">404</div><h1>Страница не найдена</h1><p class="lead">Материал или раздел могли переехать.</p><a class="source-link" href="/">Вернуться на главную</a></section>
 {{end}}
 <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div></main>
-<footer><span>© Трибуна.ру · {{year}}</span><nav><a href="/about">О проекте</a><a href="/sources">Источники</a><a href="/advertise">Реклама</a><a href="/privacy">Конфиденциальность</a></nav></footer>
+<footer><div class="footer-brand"><b>TRB / ПОСЛЕ ИГРЫ</b><span>Спортивный журнал с характером<br>и собственной оптикой.</span></div><div class="footer-year">© Трибуна.ру · {{year}}</div><nav><a href="/about">О проекте</a><a href="/sources">Источники</a><a href="/advertise">Реклама</a><a href="/privacy">Конфиденциальность</a></nav></footer>
 {{end}}
