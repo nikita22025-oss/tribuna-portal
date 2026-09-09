@@ -915,6 +915,9 @@ button[hidden] {
 .rating-grid em { align-self: end; color: var(--muted); }
 .rating-card { background: var(--ink); color: var(--paper); padding-left: 18px !important; margin-top: 12px !important; margin-bottom: 12px; }
 .rating-card span, .rating-card em { color: var(--signal); }
+.rating-live { margin-top: 18px; border-top: 1px solid var(--ink); padding-top: 12px; }
+.rating-live-label { margin-bottom: 10px; color: var(--muted); font: 500 10px DM Mono, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.rating-live iframe { display: block; width: 100%; height: 560px; border: 1px solid var(--ink); background: #fff; }
 .ad-row { position: relative; overflow: hidden; }
 .ad-row::before {
   content: 'TRB / OPEN SLOT 01';
@@ -1016,6 +1019,7 @@ button[hidden] {
   .rating-grid { grid-template-columns: 1fr; }
   .rating-grid a { border-right: 0; border-bottom: 1px solid var(--line); margin: 0; padding: 15px 0; min-height: 0; }
   .rating-card { margin: 12px 0 0 !important; padding-left: 12px !important; }
+  .rating-live iframe { height: 620px; }
   footer { display: grid; grid-template-columns: 1fr 1fr; }
   footer .footer-year { align-self: start; text-align: right; }
 }
@@ -1148,15 +1152,6 @@ button[hidden] {
   .mast-inner {
     min-height: 224px;
     padding: 25px 24px 30px;
-  }
-  .mast-inner::before {
-    content: '01 / SPORTS DESK';
-    position: absolute;
-    right: 26%;
-    bottom: 17px;
-    color: rgba(247,241,232,.5);
-    font: 500 10px DM Mono, monospace;
-    letter-spacing: .16em;
   }
   .brand-sub {
     display: block;
