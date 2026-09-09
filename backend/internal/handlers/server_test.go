@@ -91,6 +91,43 @@ func TestPublicFiltersAndArticleStatus(t *testing.T) {
 		t.Fatalf("missing article status=%d", w.Code)
 	}
 }
+
+func TestBookmakerCatalogAndAssetsAreServed(t *testing.T) {
+	dir := t.TempDir()
+	putBundle(t, dir, "bundle.json", sampleBundle())
+	site := makeSite(t, dir)
+	defer site.Close()
+	h := site.Handler()
+	for _, asset := range []string{"/bookmakers-widget.js", "/bookmakers-widget.css"} {
+		w := get(t, h, asset)
+		if w.Code != http.StatusOK || strings.Contains(w.Body.String(), "<!doctype html>") {
+			t.Fatalf("widget asset %s returned status %d or HTML", asset, w.Code)
+		}
+	}
+	w := get(t, h, "/bookmakers.json")
+	if w.Code != http.StatusOK || !strings.Contains(w.Header().Get("Content-Type"), "application/json") {
+		t.Fatalf("catalog status=%d content-type=%s", w.Code, w.Header().Get("Content-Type"))
+	}
+	var catalog struct {
+		Groups map[string]struct {
+			Total int               `json:"total"`
+			Items []json.RawMessage `json:"items"`
+		} `json:"groups"`
+	}
+	if err := json.Unmarshal(w.Body.Bytes(), &catalog); err != nil {
+		t.Fatal(err)
+	}
+	for _, group := range []string{"ru", "best"} {
+		items := catalog.Groups[group]
+		if items.Total == 0 || items.Total != len(items.Items) {
+			t.Fatalf("incomplete catalog group %s", group)
+		}
+	}
+	// Only the explicitly public catalog is permitted, not arbitrary JSON files.
+	if response := get(t, h, "/assets/private.json"); response.Code != http.StatusNotFound {
+		t.Fatalf("arbitrary JSON route exposed: %d", response.Code)
+	}
+}
 func TestActualFixtureHeroRenders(t *testing.T) {
 	dir := t.TempDir()
 	p, e := os.ReadFile(filepath.Join(backendDir(t), "../data/bundle.fixture.json"))

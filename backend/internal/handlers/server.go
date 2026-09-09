@@ -218,6 +218,9 @@ func (s *Site) Handler() http.Handler {
 	mux.HandleFunc("GET /styles.css", s.file)
 	mux.HandleFunc("GET /style.css", s.file)
 	mux.HandleFunc("GET /v2-broadsheet.js", s.file)
+	mux.HandleFunc("GET /bookmakers-widget.js", s.file)
+	mux.HandleFunc("GET /bookmakers-widget.css", s.file)
+	mux.HandleFunc("GET /bookmakers.json", s.file)
 	mux.HandleFunc("GET /favicon.svg", s.file)
 	mux.HandleFunc("GET /favicon.ico", s.file)
 	if s.cfg.AdminURL != "" {
@@ -385,7 +388,7 @@ func (s *Site) file(w http.ResponseWriter, r *http.Request) {
 	}
 	ext := strings.ToLower(filepath.Ext(name))
 	allowed := map[string]bool{".css": true, ".js": true, ".svg": true, ".png": true, ".jpg": true, ".jpeg": true, ".webp": true, ".gif": true, ".ico": true, ".woff2": true, ".woff": true}
-	if !allowed[ext] || (strings.HasPrefix(name, "uploads/") && (ext == ".svg" || ext == ".js" || ext == ".css")) {
+	if (!allowed[ext] && name != "bookmakers.json") || (strings.HasPrefix(name, "uploads/") && (ext == ".svg" || ext == ".js" || ext == ".css")) {
 		http.NotFound(w, r)
 		return
 	}
@@ -396,6 +399,9 @@ func (s *Site) file(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Cache-Control", "public, max-age=300")
+	if name == "bookmakers.json" {
+		w.Header().Set("Cache-Control", "no-cache")
+	}
 	http.ServeFile(w, r, p)
 }
 func (s *Site) stream(w http.ResponseWriter, r *http.Request) {

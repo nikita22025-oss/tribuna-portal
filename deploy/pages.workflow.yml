@@ -1,0 +1,61 @@
+name: Publish Tribuna
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/sync-bookmakers.mjs'
+      - 'scripts/test-sync-bookmakers.mjs'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tribuna-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check catalog parser
+        run: node scripts/test-sync-bookmakers.mjs
+      - name: Refresh complete bookmaker catalog
+        id: refresh
+        # A source outage must not prevent publishing a site fix. The bundled
+        # snapshot retains its original timestamp. Scheduled failures preserve
+        # the previously deployed site instead of pretending data was refreshed.
+        continue-on-error: ${{ github.event_name != 'schedule' }}
+        run: node scripts/sync-bookmakers.mjs
+      - name: Validate public assets
+        run: |
+          node --check docs/bookmakers-widget.js
+          node --check docs/v2-broadsheet.js
+          node -e "const fs=require('node:fs'); const d=JSON.parse(fs.readFileSync('docs/bookmakers.json')); for(const k of ['ru','best']) { if (!d.groups[k].items.length || d.groups[k].total !== d.groups[k].items.length) throw new Error('Incomplete catalog: '+k); }"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy public site
+        id: deployment
+        uses: actions/deploy-pages@v4

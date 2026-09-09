@@ -1,0 +1,264 @@
+{
+  "sourceUrl": "https://bookmaker-ratings.ru/bookmakers-homepage/vse-bukmekerskie-kontory/",
+  "fetchedAt": "2026-09-09T18:38:34.608Z",
+  "groups": {
+    "ru": {
+      "label": "Россия",
+      "section": "Все букмекерские конторы РФ",
+      "total": 17,
+      "items": [
+        {
+          "id": "ru-1",
+          "name": "Винлайн",
+          "rank": 1,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-winline/",
+          "bonus": "10 000 ₽",
+          "promo": "RBMAX"
+        },
+        {
+          "id": "ru-2",
+          "name": "PARI",
+          "rank": 2,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-pari-tsupis/",
+          "bonus": "25 000 ₽",
+          "promo": "RBBONUS"
+        },
+        {
+          "id": "ru-3",
+          "name": "Мелбет",
+          "rank": 3,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-melbet/",
+          "bonus": "30 000 ₽",
+          "promo": "PLAYRB"
+        },
+        {
+          "id": "ru-4",
+          "name": "Бетсити",
+          "rank": 4,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-betsiti-tsupis/",
+          "bonus": "200 000 ₽",
+          "promo": "WIN200"
+        },
+        {
+          "id": "ru-5",
+          "name": "Леон",
+          "rank": 5,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-leon/",
+          "bonus": "3 000 ₽",
+          "promo": "STRAHOVKA"
+        },
+        {
+          "id": "ru-6",
+          "name": "Фонбет",
+          "rank": 6,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoy-kontory-fonbet/",
+          "bonus": "15 000 ₽",
+          "promo": "RBMAX"
+        },
+        {
+          "id": "ru-7",
+          "name": "BETBOOM",
+          "rank": 7,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-bingo-boom-tsupis/",
+          "bonus": "1 000 ₽",
+          "promo": "BETBOOSTRB"
+        },
+        {
+          "id": "ru-8",
+          "name": "Марафон",
+          "rank": 8,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-marafon-tsupis/",
+          "bonus": "38 000 ₽",
+          "promo": "RBMAX25"
+        },
+        {
+          "id": "ru-9",
+          "name": "BETTERY",
+          "rank": 9,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/bettery-bettery-ru-bukmekerskaya-kontora-obzor-i-otzy-vy/",
+          "bonus": "2 000 ₽"
+        },
+        {
+          "id": "ru-10",
+          "name": "Лига Ставок",
+          "rank": 10,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-ligastavok/",
+          "bonus": "8 000 ₽",
+          "promo": "RBMAX"
+        },
+        {
+          "id": "ru-11",
+          "name": "Тенниси",
+          "rank": 11,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-tennisi-tsupis/",
+          "bonus": "738 400 ₽"
+        },
+        {
+          "id": "ru-12",
+          "name": "Олимп",
+          "rank": 12,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-olimp-tsupis/",
+          "bonus": "15 000 ₽",
+          "promo": "RBBONUS"
+        },
+        {
+          "id": "ru-13",
+          "name": "Бет-М",
+          "rank": 13,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/bet-m/",
+          "bonus": "3 000 ₽"
+        },
+        {
+          "id": "ru-14",
+          "name": "Балтбет",
+          "rank": 14,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-baltbet-tsupis/",
+          "bonus": "25 000 ₽",
+          "promo": "RBBBET25"
+        },
+        {
+          "id": "ru-15",
+          "name": "Зенит",
+          "rank": 15,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-zenit-tsupis/",
+          "bonus": "35 000 ₽",
+          "promo": "RBZEN"
+        },
+        {
+          "id": "ru-16",
+          "name": "Спортбет",
+          "rank": 16,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-mostbet-ru/",
+          "bonus": "500 ₽"
+        },
+        {
+          "id": "ru-17",
+          "name": "24bet",
+          "rank": 17,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/24bet-otzy-vy-privetstvenny-j-bonus-zhaloby-obzor/"
+        }
+      ],
+      "sourceUrl": "https://bookmaker-ratings.ru/bookmakers-homepage/vse-bukmekerskie-kontory/"
+    },
+    "best": {
+      "label": "Лучшие",
+      "section": "Топ букмекерских контор для ставок на спорт 2026",
+      "sourceUrl": "https://bookmaker-ratings.ru/bookmakers-homepage/luchshie-bukmekerskie-kontory/",
+      "total": 14,
+      "items": [
+        {
+          "id": "best-1",
+          "name": "Винлайн",
+          "rank": 1,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-winline/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-2",
+          "name": "PARI",
+          "rank": 2,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-pari-tsupis/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-3",
+          "name": "Мелбет",
+          "rank": 3,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-melbet/",
+          "minDeposit": "100 ₽",
+          "margin": "5,5%"
+        },
+        {
+          "id": "best-4",
+          "name": "Бетсити",
+          "rank": 4,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-betsiti-tsupis/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-5",
+          "name": "Марафон",
+          "rank": 5,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-marafon-tsupis/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-6",
+          "name": "Леон",
+          "rank": 6,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-leon/",
+          "minDeposit": "50 ₽",
+          "margin": "7,5%"
+        },
+        {
+          "id": "best-7",
+          "name": "Фонбет",
+          "rank": 7,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoy-kontory-fonbet/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-8",
+          "name": "BETTERY",
+          "rank": 8,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/bettery-bettery-ru-bukmekerskaya-kontora-obzor-i-otzy-vy/",
+          "minDeposit": "100 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-9",
+          "name": "Лига Ставок",
+          "rank": 9,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-bukmekerskoj-kontory-ligastavok/",
+          "minDeposit": "100 ₽",
+          "margin": "7%"
+        },
+        {
+          "id": "best-10",
+          "name": "Тенниси",
+          "rank": 10,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-tennisi-tsupis/",
+          "minDeposit": "300 ₽",
+          "margin": "6,5%"
+        },
+        {
+          "id": "best-11",
+          "name": "BETBOOM",
+          "rank": 11,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-bingo-boom-tsupis/",
+          "minDeposit": "100 ₽",
+          "margin": "7%"
+        },
+        {
+          "id": "best-12",
+          "name": "Бет-М",
+          "rank": 12,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/bet-m/",
+          "minDeposit": "100 ₽",
+          "margin": "6,1%"
+        },
+        {
+          "id": "best-13",
+          "name": "Зенит",
+          "rank": 13,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-zenit-tsupis/",
+          "minDeposit": "10 ₽",
+          "margin": "6%"
+        },
+        {
+          "id": "best-14",
+          "name": "Балтбет",
+          "rank": 14,
+          "reviewUrl": "https://bookmaker-ratings.ru/review/obzor-rossijskoj-bukmekerskoj-kontory-baltbet-tsupis/",
+          "minDeposit": "300 ₽",
+          "margin": "6,5%"
+        }
+      ]
+    }
+  }
+}
