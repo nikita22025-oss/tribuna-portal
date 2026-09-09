@@ -1,0 +1,20 @@
+# Runtime data
+backend/data/*.db
+backend/data/*.db-*
+data/*.db
+data/bundle.json
+frontend/uploads/news/*
+frontend/uploads/ads/*
+.env
+.env.*
+*.log
+
+# Binaries
+backend/trbn-backend
+backend/trbn-ingester
+backend/trbn-admin
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
