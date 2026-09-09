@@ -18,3 +18,11 @@ backend/trbn-admin
 .DS_Store
 .idea/
 .vscode/
+!.env.example
+data/*.db-*
+data/source-status.json
+bin/
+dist/
+.local/
+.run/
+*.test

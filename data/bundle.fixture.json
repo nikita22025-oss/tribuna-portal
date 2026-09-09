@@ -1,1 +1,154 @@
-{"issue":[],"nav":[],"hero":null,"feed":[],"stories":[],"scoreboard":[],"opinions":[],"ads":[]}
+{
+  "issue": {
+    "number": "01",
+    "date": "2024-09-15",
+    "title": "Пульс игры"
+  },
+  "nav": [
+    {
+      "id": "all",
+      "label": "Все"
+    },
+    {
+      "id": "football",
+      "label": "Футбол"
+    },
+    {
+      "id": "hockey",
+      "label": "Хоккей"
+    },
+    {
+      "id": "tennis",
+      "label": "Теннис"
+    },
+    {
+      "id": "basketball",
+      "label": "Баскетбол"
+    },
+    {
+      "id": "motorsport",
+      "label": "Автоспорт"
+    },
+    {
+      "id": "other",
+      "label": "Вне игры"
+    }
+  ],
+  "hero": {
+    "id": "demo-hero",
+    "title": "Игра начинается задолго до стартового свистка",
+    "summary": "Почему современный спорт всё чаще строится вокруг ритма, пространства и маленьких решений — разбираем механику красивой игры.",
+    "url": "",
+    "source_id": "tribuna",
+    "source_name": "Трибуна.ру",
+    "tag": "football",
+    "image_path": "/assets/stadium-editorial.png",
+    "published_at": "2024-09-15T08:00:00Z",
+    "is_demo": true
+  },
+  "feed": [
+    {
+      "id": "demo-hero",
+      "title": "Игра начинается задолго до стартового свистка",
+      "summary": "Почему современный спорт всё чаще строится вокруг ритма, пространства и маленьких решений — разбираем механику красивой игры.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "football",
+      "image_path": "/assets/stadium-editorial.png",
+      "published_at": "2024-09-15T08:00:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-01",
+      "title": "Тихая революция в раздевалке: как команды учатся слышать друг друга",
+      "summary": "Коммуникация стала такой же частью подготовки, как тактика и восстановление.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "football",
+      "image_path": "/assets/football.svg",
+      "published_at": "2024-09-14T14:10:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-02",
+      "title": "Лёд, который держит характер",
+      "summary": "Хоккей меняется вместе с темпом: больше коротких смен, меньше лишних движений.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "hockey",
+      "image_path": "/assets/hockey.svg",
+      "published_at": "2024-09-13T09:20:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-03",
+      "title": "Теннис без лишнего шума",
+      "summary": "Пауза между розыгрышами иногда рассказывает об игроке больше самой атаки.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "tennis",
+      "image_path": "/assets/tennis.svg",
+      "published_at": "2024-09-12T12:40:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-04",
+      "title": "Пять секунд до броска",
+      "summary": "Баскетбольная геометрия — это язык, на котором площадка отвечает на движение.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "basketball",
+      "image_path": "/assets/basketball.svg",
+      "published_at": "2024-09-11T16:05:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-05",
+      "title": "Скорость, которую нельзя измерить одним кругом",
+      "summary": "В автоспорте победа складывается из сотен почти незаметных решений.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "motorsport",
+      "image_path": "/assets/motorsport.svg",
+      "published_at": "2024-09-10T10:15:00Z",
+      "is_demo": true
+    },
+    {
+      "id": "demo-06",
+      "title": "Спорт как городская привычка",
+      "summary": "Площадки во дворах, утренние пробежки и трибуны — у каждого города свой пульс игры.",
+      "url": "",
+      "source_id": "tribuna",
+      "source_name": "Трибуна.ру",
+      "tag": "other",
+      "image_path": "/assets/football.svg",
+      "published_at": "2024-09-09T07:30:00Z",
+      "is_demo": true
+    }
+  ],
+  "stories": [],
+  "scoreboard": [],
+  "opinions": [],
+  "ads": [
+    {
+      "id": "house-01",
+      "placement": "top",
+      "title": "Ваш бренд — в ритме игры",
+      "advertiser": "",
+      "erid": "",
+      "click_url": "/advertise",
+      "file": "",
+      "width": 0,
+      "height": 0
+    }
+  ],
+  "updated_at": "2024-09-15T18:00:00Z",
+  "is_demo": true,
+  "sources": []
+}

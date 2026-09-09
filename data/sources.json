@@ -1,0 +1,4 @@
+[
+  {"id":"championat-news","name":"Чемпионат","url":"https://www.championat.com/rss/news/","tag":"other","enabled":true},
+  {"id":"sports-news","name":"Sports.ru","url":"https://www.sports.ru/rss/main.xml","tag":"other","enabled":true}
+]

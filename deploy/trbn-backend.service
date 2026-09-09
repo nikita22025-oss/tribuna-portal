@@ -1,0 +1,24 @@
+[Unit]
+Description=Tribuna backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tribuna
+Group=tribuna
+WorkingDirectory=/opt/tribuna/backend
+EnvironmentFile=/etc/tribuna.env
+ExecStart=/opt/tribuna/bin/trbn-backend
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/tribuna/data /opt/tribuna/frontend/uploads
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

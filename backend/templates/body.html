@@ -1,0 +1,61 @@
+{{define "article-card"}}
+<article class="card" data-article-id="{{.ID}}">
+  <a class="card-media" href="/news/{{.ID}}"><img src="{{if .ImagePath}}{{.ImagePath}}{{else}}{{art .Tag}}{{end}}" alt="" loading="lazy">{{if not .ImagePath}}<span class="art-label">Иллюстрация</span>{{end}}</a>
+  <div class="meta"><span>{{tag .Tag}} · {{.SourceName}}</span><span data-date="{{.PublishedAt}}">{{date .PublishedAt}}</span></div>
+  <h3><a href="/news/{{.ID}}">{{.Title}}</a></h3>
+  {{if .Summary}}<p class="summary">{{.Summary}}</p>{{end}}
+  <button class="save" data-save="{{.ID}}" type="button">Сохранить</button>
+</article>
+{{end}}
+
+{{define "ad-row"}}
+<aside class="ad-row ad-{{.Placement}}" aria-label="Рекламное размещение">
+  <div><div class="ad-label">Реклама{{if .Advertiser}} · {{.Advertiser}}{{end}}{{if .ERID}} · erid: {{.ERID}}{{end}}</div>{{if .File}}<img class="ad-creative" src="{{.File}}" alt="{{.Title}}">{{else}}<strong>{{if .Title}}{{.Title}}{{else}}Ваше сообщение может быть здесь{{end}}</strong>{{end}}</div>
+  {{if .ClickURL}}<a href="{{.ClickURL}}" rel="sponsored noopener">Узнать условия</a>{{else}}<a href="/advertise">Разместить</a>{{end}}
+</aside>
+{{end}}
+
+{{define "page-body"}}
+<a class="skip" href="#content">К содержимому</a>
+<div class="topline"><span>Спортивный журнал · {{if .Bundle.IsDemo}}демо-выпуск{{else}}выпуск дня{{end}}</span><span>{{date .Bundle.UpdatedAt}}</span></div>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="brand-sub">Трибуна · авторский спортивный портал</div>
+    <a class="brand" href="/" aria-label="Трибуна.ру">ТРИБУНА<span class="dot">.</span></a>
+    <div class="mast-tools"><form class="mast-search" data-search method="get" action="/"><input name="q" value="{{.Query}}" placeholder="Поиск" aria-label="Поиск"><button class="tool" type="submit">Найти</button></form><a class="tool" href="/bookmarks">Сохранённые</a><button class="tool" data-menu-toggle aria-expanded="false" type="button">Рубрики</button></div>
+  </div>
+  <nav class="volumes" data-menu aria-label="Рубрики">
+    {{range .Bundle.Nav}}<a class="volume{{if or (eq $.Category .ID) (and (eq .ID "all") (not $.Category))}} active{{end}}" data-filter="{{.ID}}" href="/?category={{.ID}}">{{.Label}}</a>{{end}}
+  </nav>
+</header>
+<main class="page" id="content">
+{{if eq .Mode "home"}}
+  {{if .Bundle.IsDemo}}<div class="demo-ribbon"><b>Демо-выпуск</b><span>Редакционный макет · данные-образцы</span></div>{{end}}
+  {{if and (or (not .Category) (eq .Category "all")) (not .Query) (eq .Page 1)}}<div class="hero-grid">
+    {{with .Bundle.Hero}}<section class="hero"><div class="kicker">Главная тема · {{tag .Tag}}</div><h1><a href="/news/{{.ID}}">{{.Title}}</a></h1><p>{{.Summary}}</p><a class="hero-media" href="/news/{{.ID}}"><img src="{{if .ImagePath}}{{.ImagePath}}{{else}}/assets/stadium-editorial.png{{end}}" alt="" fetchpriority="high"></a><span class="art-credit">{{if .ImagePath}}{{if .IsDemo}}Иллюстрация «Трибуны»{{end}}{{else}}Иллюстрация «Трибуны»{{end}}</span></section>{{end}}
+    {{range $i, $item := .Items}}{{if eq $i 1}}<aside class="side-feature"><div class="eyebrow">На поверхности · {{tag $item.Tag}}</div><h2><a href="/news/{{$item.ID}}">{{$item.Title}}</a></h2><a class="side-art" href="/news/{{$item.ID}}"><img src="{{if $item.ImagePath}}{{$item.ImagePath}}{{else}}{{art $item.Tag}}{{end}}" alt="" loading="eager"></a>{{if not $item.ImagePath}}<span class="art-credit">Иллюстрация</span>{{end}}<div class="side-briefs"><div class="eyebrow">В фокусе</div>{{range $j,$brief := $.Items}}{{if and (ge $j 2) (le $j 3)}}<a href="/news/{{$brief.ID}}"><span>{{tag $brief.Tag}}</span><h3>{{$brief.Title}}</h3></a>{{end}}{{end}}</div></aside>{{end}}{{end}}
+  </div>{{end}}
+  {{if .Bundle.Ads}}{{range .Bundle.Ads}}{{if eq .Placement "top"}}{{template "ad-row" .}}{{end}}{{end}}{{else}}<aside class="ad-row" aria-label="Рекламное место"><div><div class="ad-label">Собственный проект</div><strong>Ваш бренд — в ритме игры</strong></div><a href="/advertise">Разместить</a></aside>{{end}}
+  <section aria-labelledby="feed-title"><div class="section-head"><button class="fresh-news" id="fresh-news" type="button" hidden>Есть обновления ↻</button><h2 id="feed-title">{{if .Query}}Результаты поиска{{else if .Category}}{{tag .Category}}{{else}}Лента{{end}}</h2><small>{{if .Category}}{{tag .Category}}{{else}}Все события{{end}} · материалов: {{.Total}}</small></div><div class="feed-grid">{{range .Items}}{{template "article-card" .}}{{else}}<p class="empty">Лента пока пуста. Попробуйте обновить страницу позже.</p>{{end}}</div></section>
+  {{range .Bundle.Ads}}{{if or (eq .Placement "inline") (eq .Placement "sidebar")}}{{template "ad-row" .}}{{end}}{{end}}
+  {{if or (gt .Page 1) .HasNext}}<nav class="pagination" aria-label="Страницы">{{if gt .Page 1}}<a href="{{.PrevURL}}">← Назад</a>{{else}}<span></span>{{end}}<span>Страница {{.Page}}</span>{{if .HasNext}}<a href="{{.NextURL}}">Дальше →</a>{{else}}<span></span>{{end}}</nav>{{end}}
+{{else if eq .Mode "article"}}
+  {{with .Article}}<article class="article-layout"><a class="backline" href="/">← Вернуться к ленте</a><div class="kicker">{{tag .Tag}} · {{.SourceName}} · <span data-date="{{.PublishedAt}}">{{date .PublishedAt}}</span></div><h1>{{.Title}}</h1><p class="lead">{{.Summary}}</p>{{if .ImagePath}}<img class="article-image" src="{{.ImagePath}}" alt="" fetchpriority="high">{{end}}<div class="article-body"><p class="demo-ribbon"><b>{{if .IsDemo}}Демо-материал{{else}}Материал ленты{{end}}</b><span>Полный текст находится у источника</span></p>{{if .URL}}<a class="source-link" href="{{.URL}}" rel="noopener noreferrer">Читать в источнике: {{.SourceName}} ↗</a>{{end}}</div><button class="save" data-save="{{.ID}}" type="button">Сохранить материал</button></article>{{else}}<p class="empty">Материал не найден.</p>{{end}}{{range .Bundle.Ads}}{{if eq .Placement "inline"}}{{template "ad-row" .}}{{end}}{{end}}
+{{else if eq .Mode "search"}}
+  <section><div class="section-head"><h2>Поиск</h2><small>{{if .Query}}Результаты{{end}}</small></div><form class="searchbar" data-search method="get" action="/"><input name="q" value="{{.Query}}" placeholder="Найти по заголовкам…" aria-label="Поиск"><button type="submit">Искать</button></form><div class="feed-grid">{{range .Items}}{{template "article-card" .}}{{else}}<p class="empty">Ничего не нашли. Попробуйте другой запрос.</p>{{end}}</div></section>
+{{else if eq .Mode "bookmarks"}}
+  <section><div class="section-head"><h2>Сохранённые</h2><small>Личная полка в этом браузере</small></div><p class="empty" data-bookmarks-empty>Нажмите «Сохранить» на материале, чтобы собрать свою подборку. Сохранения хранятся только в этом браузере.</p><div class="feed-grid" data-bookmarks-list>{{range .Items}}{{template "article-card" .}}{{end}}</div></section>
+{{else if eq .Mode "about"}}
+  <section class="article-layout"><div class="kicker">О проекте</div><h1>Спорт крупным планом</h1><p class="lead">«Трибуна» собирает спортивные сюжеты в ритме большого журнала: внимательно к игре, людям и деталям вокруг неё.</p><div class="article-body"><p>Мы берём короткие анонсы и ссылки из подключённых источников, сохраняем атрибуцию и оставляем читателю путь к оригиналу. Собственные тексты и визуальные истории редакция помечает отдельно.</p></div></section>
+{{else if eq .Mode "sources"}}
+  <section><div class="section-head"><h2>Источники</h2><small>Прозрачная лента</small></div><p class="lead">Материалы в ленте сопровождаются названием и ссылкой на исходное издание.</p><div class="feed-grid">{{range .Bundle.Sources}}<article class="card"><div class="meta"><span>{{if eq .Status "ok"}}Доступен{{else}}Временно недоступен{{end}}</span><span>{{.ItemCount}} материалов</span></div><h3><a href="{{.URL}}" rel="noopener noreferrer">{{.Name}}</a></h3><p class="summary">Последнее успешное обновление: {{date .LastSuccess}} {{time .LastSuccess}} МСК</p></article>{{else}}<p class="empty">Источники ещё не подключены.</p>{{end}}</div></section>
+{{else if eq .Mode "advertise"}}
+  <section class="article-layout"><div class="kicker">Для рекламодателей</div><h1>Разместиться в ритме игры</h1><p class="lead">Нативные и медийные форматы рядом с редакционными материалами «Трибуны».</p><div class="article-body"><p>Попросите редакцию прислать актуальные форматы, сроки и условия. Каждый рекламный материал маркируется и ведёт на страницу рекламодателя.</p>{{if .ContactEmail}}<a class="source-link" href="mailto:{{.ContactEmail}}">{{.ContactEmail}} ↗</a>{{else}}<span class="source-link">Свяжитесь с редакцией через переданный вам канал связи</span>{{end}}</div></section>
+{{else if eq .Mode "privacy"}}
+  <section class="article-layout"><div class="kicker">Документы</div><h1>Политика конфиденциальности</h1><div class="article-body"><p>Мы используем только технические данные, необходимые для работы сайта. Сохранённые материалы хранятся локально в браузере и не отправляются на сервер.</p></div></section>
+{{else}}
+  <section class="article-layout"><div class="kicker">404</div><h1>Страница не найдена</h1><p class="lead">Материал или раздел могли переехать.</p><a class="source-link" href="/">Вернуться на главную</a></section>
+{{end}}
+<div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div></main>
+<footer><span>© Трибуна.ру · {{year}}</span><nav><a href="/about">О проекте</a><a href="/sources">Источники</a><a href="/advertise">Реклама</a><a href="/privacy">Конфиденциальность</a></nav></footer>
+{{end}}
