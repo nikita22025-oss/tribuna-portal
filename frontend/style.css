@@ -1458,3 +1458,9 @@ body {
   .footer-content { grid-template-columns:1fr; }
   .footer-content .footer-year { text-align:left; }
 }
+
+.rating-card-live { display: block !important; padding: 12px !important; margin-top: 12px !important; margin-bottom: 12px; }
+.rating-card-live > span { display: block; margin-bottom: 10px; }
+.rating-card-live iframe { display: block; width: 100%; height: 260px; border: 0; background: #fff; }
+.rating-card-live > a { display: inline-block; margin-top: 10px; color: var(--signal); font: 500 10px DM Mono, monospace; text-transform: uppercase; }
+@media (max-width: 800px) { .rating-card-live iframe { height: 360px; } }
