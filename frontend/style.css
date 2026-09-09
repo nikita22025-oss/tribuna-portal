@@ -960,3 +960,43 @@ button[hidden] {
 .ad-row a {
   max-width: 100%;
 }
+
+/* The masthead keeps the wordmark and controls in separate editorial bands.
+   The large display type is allowed to breathe without passing underneath the
+   search and utility controls. */
+@media (min-width: 801px) {
+  .mast-inner {
+    min-height: 236px;
+    padding: 24px 24px 28px;
+    display: block;
+  }
+  .brand-sub {
+    left: 24px;
+    top: 23px;
+    z-index: 2;
+  }
+  .brand {
+    position: absolute;
+    left: 24px;
+    bottom: 25px;
+    max-width: calc(100% - 410px);
+    white-space: nowrap;
+    font-size: clamp(4.5rem, 10vw, 10.5rem);
+    line-height: 0.72;
+    z-index: 1;
+  }
+  .mast-tools {
+    top: 22px;
+    right: 24px;
+    max-width: 370px;
+    z-index: 3;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .mast-search input {
+    width: 128px;
+  }
+  .volumes {
+    justify-content: flex-end;
+  }
+}
