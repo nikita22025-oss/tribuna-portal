@@ -1201,3 +1201,19 @@ button[hidden] {
   .mag-tall .mag-image { aspect-ratio: 1.12 / 1; }
   .mag-side-ad { min-height: 150px; }
 }
+
+@media (min-width: 801px) {
+  .magazine-grid {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+    padding-left: clamp(28px, 2.1vw, 52px);
+    padding-right: clamp(28px, 2.1vw, 52px);
+  }
+  .magazine-grid + .ad-row,
+  .magazine-grid ~ section,
+  .magazine-grid ~ .pagination {
+    max-width: none;
+  }
+}
